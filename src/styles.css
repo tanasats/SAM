@@ -1,1 +1,150 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Sarabun:wght@300&display=swap");
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Sarabun", Roboto, "Helvetica Neue", sans-serif;
+}
+
+.sj-wrapper {
+  height: calc(100vh - 64px);
+}
+#app-topnev {
+    display:flex;
+  height: 64px;
+  /*background-color: rgb(33,63,101);  LAZULI BLUE */
+  background-color: rgb(52, 74, 97);
+  color: white;
+  z-index: 1000;
+  position: relative;
+  border-bottom: 1px solid rgb(25, 43, 63);
+  /*
+    box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
+    */
+}
+#app-topnev a{
+    align-self: center;
+    font-family: 'Sarabun';
+    font-size: 1rem;
+}
+.app-logo{
+    align-self:center;
+    padding:0 16px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+footer {
+  font-size: 0.9rem;
+  height: 64px;
+  padding:8px 8px;
+  background-color: rgb(52, 74, 97);
+  color: white;
+}
+footer div{
+  display:block;
+}
+
+main {
+  min-height: calc(100vh - 128px);
+}
+main mat-drawer-container {
+  min-height: calc(100vh - 128px);
+}
+mat-drawer label {
+  font-family: "Sarabun";
+  padding-left: 8px;
+}
+.sidenav-text-toggle {
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgb(248, 249, 250); /* bg-light */
+}
+.sidenav-text-toggle mat-icon {
+  vertical-align: middle;
+}
+.router-link-active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.welcome {
+  display: block;
+  height: 300px;
+  /* background-color: rgb(25, 43, 63); */
+  background-color: rgb(44, 74, 107);
+  position: relative;
+  color: white;
+}
+.welcome h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+a,a:visited{
+    color:white;
+}
+
+a:hover {
+  color: yellow;
+}
+
+/* My Color Theme */
+.text-msu1 {
+  color: rgb(250, 223, 74);
+}
+.text-msu2 {
+  color: rgb(147, 151, 154);
+}
+.text-msu3 {
+  color: rgb(52, 74, 97);
+}
+
+.bg-msu1 {
+  background-color: rgb(250, 223, 74);
+}
+.bg-msu2 {
+  background-color: rgb(147, 151, 154);
+}
+.bg-msu3 {
+  background-color: rgb(52, 74, 97);
+}
+
+.bg-theme1 {
+  background-color: rgb(33, 63, 101); /* LAZULI BLUE */
+}
+.bg-theme2 {
+  background-color: rgb(129, 148, 118); /* JADE BLUE */
+}
+.bg-theme3 {
+  background-color: rgb(239, 186, 94); /* HONEYCOMB BLUE */
+}
+.bg-theme4 {
+  background-color: rgb(67, 52, 49); /* DARK OAK BLUE */
+}
+.bg-theme5 {
+  background-color: rgb(161, 52, 110); /* ORCHID FLOWER BLUE */
+}
+.text-theme1 {
+  color: rgb(33, 63, 101); /* LAZULI BLUE */
+}
+.text-theme2 {
+  color: rgb(129, 148, 118); /* JADE BLUE */
+}
+.text-theme3 {
+  color: rgb(239, 186, 94); /* HONEYCOMB BLUE */
+}
+.text-theme4 {
+  color: rgb(67, 52, 49); /* DARK OAK BLUE */
+}
+.text-theme5 {
+  color: rgb(161, 52, 110); /* ORCHID FLOWER BLUE */
+}
+/* My Color Theme */

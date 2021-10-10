@@ -1,0 +1,15 @@
+<main>
+    <mat-drawer-container autosize>
+      <mat-drawer #drawer mode="side" opened>
+        <sidenav [SidenavLinks]="studentSidenavLinks"></sidenav>
+      </mat-drawer>
+      <mat-drawer-content>
+        <!-- router outlet -->
+        <!-- <button class="btn btn-primary" (click)="drawer.toggle()">Toggle drawer</button> -->
+        <div style="height:40px;line-height:40px;vertical-align: middle;" class="bg-msu1">
+            <div>Student Works!</div>
+        </div>
+        <router-outlet></router-outlet>
+      </mat-drawer-content><!-- router outlet -->
+    </mat-drawer-container>
+  </main>

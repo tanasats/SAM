@@ -1,0 +1,12 @@
+    <mat-nav-list style="padding-top:0;">
+        <!-- <button class="btn btn-warning" (click)="isShowSideNavText=!isShowSideNavText">show Text</button> -->
+        <div class="sidenav-text-toggle" (click)="isShowSideNavText=!isShowSideNavText"  >
+            <mat-icon>
+                {{ isShowSideNavText ? "chevron_left" : " chevron_right" }}
+            </mat-icon>
+        </div>
+      <a mat-list-item *ngFor="let item of SidenavLinks" matTooltip="{{item.name}}">
+        <mat-icon>{{item.icon}}</mat-icon>
+        <label *ngIf="isShowSideNavText">{{item.name}}</label>
+      </a>
+    </mat-nav-list>
