@@ -10,7 +10,8 @@ const routes: Routes = [
     children:[
       {path:'',component:HomeComponent},
       {path:'register',component:RegisterComponent},
-      {path:'checkpoint',component:CheckpointComponent}
+      {path:'checkpoint',component:CheckpointComponent},
+      {path:'**',redirectTo:'',pathMatch:'full'}
     ]},
   {path:'**',redirectTo:'',pathMatch:'full'}
 ];

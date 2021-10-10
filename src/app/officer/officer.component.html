@@ -1,4 +1,15 @@
 <main>
-<p>officer works!</p>
-<router-outlet></router-outlet>
-</main>
+    <mat-drawer-container autosize>
+      <mat-drawer #drawer mode="side" opened>
+        <sidenav [SidenavLinks]="SidenavLinks"></sidenav>
+      </mat-drawer>
+      <mat-drawer-content>
+        <!-- router outlet -->
+        <!-- <button class="btn btn-primary" (click)="drawer.toggle()">Toggle drawer</button> -->
+        <div style="height:40px;line-height:40px;vertical-align: middle;padding:0 16px;" class="bg-msu1">
+            <div>Officer Works!</div>
+        </div>
+        <router-outlet></router-outlet>
+      </mat-drawer-content><!-- router outlet -->
+    </mat-drawer-container>
+  </main>

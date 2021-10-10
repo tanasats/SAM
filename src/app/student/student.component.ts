@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-  public studentSidenavLinks = [
-    { link: "/student", name: "หน้าหลัก", icon: "dashboard" },
+  public SidenavLinks = [
+    { link: "/student", name: "หน้าหลัก", icon: "home" },
     { link: "/student/checkpoint", name: "การเช็คชื่อ", icon: "fingerprint" },
     { link: "/student/register", name: "ลงทะเบียนกิจกรรม", icon: "assignment" },
   ];
