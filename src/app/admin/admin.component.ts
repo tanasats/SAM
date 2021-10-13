@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
   public SidenavLinks = [
     { link: "/admin", name: "หน้าหลัก", icon: "home" },
-    { link: "/admin/xxx", name: "การเช็คชื่อ", icon: "fingerprint" },
-    { link: "/admin/xxx", name: "ลงทะเบียนกิจกรรม", icon: "assignment" },
+    { link: "/admin/activity", name: "จัดการกิจกรรม", icon: "assignment" },
+    { link: "/admin/setting", name: "ตั้งค่า", icon: "settings" },   
   ];
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
 
 }

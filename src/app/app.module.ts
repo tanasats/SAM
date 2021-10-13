@@ -11,6 +11,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { HomeComponent } from './components/home/home.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component'
@@ -19,19 +21,24 @@ import { StudentModule } from './student/student.module';
 import { OfficerModule } from './officer/officer.module';
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './components/login/login.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SidenavComponent,
-    LoginComponent
+    LoginComponent,
+    ConfirmDialogComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule, MatButtonModule, MatTooltipModule,
+    MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule, MatButtonModule, 
+    MatTooltipModule, MatMenuModule, MatDialogModule,
     StudentModule,
     OfficerModule,
     AdminModule,

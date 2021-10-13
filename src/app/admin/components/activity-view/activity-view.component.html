@@ -1,0 +1,28 @@
+<div class="page-toolbar">
+    <div>
+        <!-- <mat-icon>domain</mat-icon> -->
+        <button [routerLink]="['/admin/activity']" mat-icon-button matTooltip="ย้อนกลับ">
+            <mat-icon>chevron_left</mat-icon>
+        </button>
+        <label>รายละเอียดกิจกรรมนิสิต</label>
+    </div>
+    <span>
+        <button class="justify-content-end" mat-icon-button matTooltip="โหลดข้อมูล"
+            aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>refresh</mat-icon>
+        </button>
+    </span>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+
+
+            ID : {{item.id}}<br>
+            รหัสกิจกรรม : {{item.actcode}}<br>
+            ชื่อกิจกรรม : {{item.actname}}
+
+        </div>
+    </div>
+</div>

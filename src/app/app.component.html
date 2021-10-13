@@ -1,7 +1,7 @@
 <div class="sj-wrapper">
   <header id="app-topnev">
     <div class="app-logo text-msu1" style="cursor:pointer;" [routerLink]="['/home']">
-      SAM 
+      SAM
     </div>
     <a mat-button [routerLink]="['/student']" routerLinkActive="router-link-active">
       student
@@ -11,18 +11,28 @@
     </a>
     <a mat-button [routerLink]="['/admin']" routerLinkActive="router-link-active">
       admin
-    </a>    
+    </a>
     <a mat-button style="margin-left: auto;" [routerLink]="['/login']" routerLinkActive="router-link-active">
       เข้าใช้งาน
     </a>
+    <a mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+      <mat-icon>more_vert</mat-icon>
+    </a>
+    <mat-menu #menu="matMenu" Position="before">
+      <button mat-menu-item>Student</button>
+      <button mat-menu-item>Officer</button>
+      <button mat-menu-item>Admin</button>
+    </mat-menu>
     <!-- <a [routerLink]="['/login']" routerLinkActive="router-link-active"  style="align-self: center;">
     <mat-icon>login</mat-icon>
     </a> -->
   </header>
-  
+
   <router-outlet></router-outlet>
+  
   <footer>
-    <div>ระบบบริหารจัดการกิจกรรมนิสิต <span class="d-none d-sm-inline ">กองกิจการนิสิต</span> มหาวิทยาลัยมหาสารคาม </div>
+    <div>ระบบบริหารจัดการกิจกรรมนิสิต <span class="d-none d-sm-inline ">กองกิจการนิสิต</span> มหาวิทยาลัยมหาสารคาม
+    </div>
     <small>โดย สำนักคอมพิวเตอร์&copy;2021 developer: นายธนศาสตร์ สุดจริง</small>
   </footer>
-</div>
+</div> 

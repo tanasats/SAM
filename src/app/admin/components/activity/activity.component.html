@@ -1,0 +1,42 @@
+<div class="page-toolbar">
+    <div>
+        <mat-icon>domain</mat-icon>
+        <label>กิจกรรมนิสิต</label>
+    </div>
+    <span>
+        <button [routerLink]="['add']" routerLinkActive="router-link-active" class="justify-content-end" mat-icon-button
+            matTooltip="เพิ่ม" aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>add</mat-icon>
+        </button>
+        <button class="justify-content-end" mat-icon-button matTooltip="โหลดข้อมูล"
+            aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>refresh</mat-icon>
+        </button>
+    </span>
+</div>
+
+<button mat-raised-button (click)="confirmDialog()" >aaa</button>
+
+<!-- <div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <mat-card class="mt-2">
+                แสดงรายการกิจกรรม
+            </mat-card>          
+        </div>
+    </div>
+</div> -->
+
+
+<div style="padding:0px 16px;border-bottom: 1px solid rgba(0,0,0,0.02);background-color:#F0F0F0">
+    <mat-form-field>
+        <input type=" text" matInput placeholder="ค้นหากิจกรรม">
+    </mat-form-field>
+    <button mat-icon-button aria-label="">
+        <mat-icon>search</mat-icon>
+    </button>
+</div>
+
+<div *ngFor="let item of activitylist">
+    <activity-list-item [item]="item" (deleteRequest)="deleteItem($event);"></activity-list-item>
+</div>

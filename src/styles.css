@@ -14,7 +14,7 @@ body {
   height: calc(100vh - 64px);
 }
 #app-topnev {
-    display:flex;
+  display: flex;
   height: 64px;
   /*background-color: rgb(33,63,101);  LAZULI BLUE */
   background-color: rgb(52, 74, 97);
@@ -26,27 +26,27 @@ body {
     box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
     */
 }
-#app-topnev a{
-    align-self: center;
-    font-family: 'Sarabun';
-    font-size: 1rem;
+#app-topnev a {
+  align-self: center;
+  font-family: "Sarabun";
+  font-size: 1rem;
 }
-.app-logo{
-    align-self:center;
-    padding:0 16px;
-    font-size: 1.2rem;
-    font-weight: 700;
+.app-logo {
+  align-self: center;
+  padding: 0 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 footer {
   font-size: 0.9rem;
   height: 64px;
-  padding:8px 8px;
+  padding: 8px 8px;
   background-color: rgb(52, 74, 97);
   color: white;
 }
-footer div{
-  display:block;
+footer div {
+  display: block;
 }
 
 main {
@@ -59,6 +59,7 @@ mat-drawer label {
   font-family: "Sarabun";
   padding-left: 8px;
 }
+
 .sidenav-text-toggle {
   height: 40px;
   line-height: 40px;
@@ -66,6 +67,9 @@ mat-drawer label {
   text-align: center;
   cursor: pointer;
   background-color: rgb(248, 249, 250); /* bg-light */
+}
+.mat-list-item-content {
+  color: rgb(52, 74, 97);
 }
 .sidenav-text-toggle mat-icon {
   vertical-align: middle;
@@ -88,23 +92,60 @@ mat-drawer label {
   margin-right: -50%;
   transform: translate(-50%, -50%);
 }
-a,a:visited{
-    color:white;
+a {
+  color: white;
+}
+a:visited {
+  color: inherit;
 }
 
 a:hover {
-  color: yellow;
+  color: rgb(250, 223, 74);
+}
+
+.page-toolbar {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  padding: 8px 16px;
+  color: rgb(52, 74, 97);
+}
+.page-toolbar div {
+  flex-grow: 1;
+  display: inline-flex;
+  align-items: center;
+}
+.page-toolbar div label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.page-toolbar span button {
+  margin-left: 5px;
 }
 
 /* My Color Theme */
 .text-msu1 {
-  color: rgb(250, 223, 74);
+   color: rgb(250, 223, 74);
+ /* color:rgb(226,155,65) */
 }
 .text-msu2 {
   color: rgb(147, 151, 154);
 }
+.text-msu2 {
+  color: rgb(108, 111, 114);
+}
 .text-msu3 {
   color: rgb(52, 74, 97);
+}
+.text-msu4 {
+  color: rgb(58, 102, 148);
+}
+.text-msu5 {
+  color: rgb(27, 55, 86);
+}
+.text-msu6{
+  color:rgb(226,155,65)
 }
 
 .bg-msu1 {
