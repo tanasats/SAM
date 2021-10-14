@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {
   ConfirmDialogModel,
   ConfirmDialogComponent,
@@ -11,6 +12,11 @@ import {
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  //date: NgbDate = new NgbDate(1789, 7, 14); 
+  //model: NgbDateStruct | undefined;
+  //model: NgbDateStruct={year:0,month:0,day:0};
+  model: any;
+
   public sidenavLinks = [
     { link: '/student', name: 'xหน้าหลัก', icon: 'dashboard' },
     { link: '/student/checkpoint', name: 'xการเช็คชื่อ', icon: 'fingerprint' },
@@ -21,6 +27,9 @@ export class HomeComponent implements OnInit {
     },
   ];
   result: string = '';
+
+  
+  //date: { year: number; month: number; day: number} | undefined;;
 
   constructor(public dialog: MatDialog) {}
 

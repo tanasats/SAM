@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
@@ -24,7 +25,9 @@ import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
 
+import { NgbModule  } from '@ng-bootstrap/ng-bootstrap';
 
 import { ActivityComponent } from './components/activity/activity.component';
 import { ActivityAddComponent } from './components/activity-add/activity-add.component';
@@ -32,6 +35,7 @@ import { ActivityListItemComponent } from './components/activity-list-item/activ
 import { ActivityEditComponent } from './components/activity-edit/activity-edit.component';
 import { ActivityViewComponent } from './components/activity-view/activity-view.component';
 import { SettingComponent } from './components/setting/setting.component';
+
 
 
 
@@ -51,10 +55,12 @@ import { SettingComponent } from './components/setting/setting.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
+    FormsModule, ReactiveFormsModule,
     MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule, MatButtonModule, 
     MatTooltipModule, MatCardModule, MatFormFieldModule, MatInputModule, MatOptionModule,
     MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSlideToggleModule,
-    MatMenuModule, MatGridListModule, MatDialogModule,
+    MatMenuModule, MatGridListModule, MatDialogModule,MatTabsModule,
+    NgbModule,
 
   ]
 })

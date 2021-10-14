@@ -22,6 +22,8 @@ import { OfficerModule } from './officer/officer.module';
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './components/login/login.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { NgbModule,NgbModal  } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     StudentModule,
     OfficerModule,
     AdminModule,
+    NgbModule,
 
   ],
   providers: [],

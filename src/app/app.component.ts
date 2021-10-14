@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  //@ViewChild('NgbdDatepicker') d: NgbDateStruct | undefined;
   title = 'MyTheme';
   isShowSideNavText = true;
+
+ 
 }

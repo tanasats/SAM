@@ -1,0 +1,200 @@
+<div class="page-toolbar">
+    <div>
+        <!-- <mat-icon>domain</mat-icon> -->
+        <button [routerLink]="['/admin/activity']" mat-icon-button matTooltip="ย้อนกลับ">
+            <mat-icon>chevron_left</mat-icon>
+        </button>
+        <label>เพิ่มกิจกรรมนิสิต</label>
+    </div>
+    <span>
+        <!-- <button [routerLink]="['add']" routerLinkActive="router-link-active" class="justify-content-end" mat-icon-button
+            matTooltip="เพิ่ม" aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>add</mat-icon>
+        </button> -->
+        <!-- <button mat-flat-button class="bg-success text-white">บันทึก</button> -->
+        <button class="justify-content-end" mat-icon-button matTooltip="โหลดข้อมูล"
+            aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>refresh</mat-icon>
+        </button>
+    </span>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+
+            <mat-card class="mt-2">
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <input type="text" class="form-field">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4">
+                            <mat-form-field class="sam-form-field w-100 text-success">
+                                <input formControlName="actcode" matInput placeholder="รหัสกิจกรรม" readonly>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-8 col-md-8">
+                            <mat-form-field class="sam-form-field w-100">
+                                <input formControlName="actname" matInput placeholder="ชื่อกิจกรรม">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <mat-form-field class="w-100">
+                                <mat-label>องค์กรที่จัด</mat-label>
+                                <mat-select>
+                                    <mat-option [value]='1'>1</mat-option>
+                                    <mat-option [value]='2'>2</mat-option>
+                                    <mat-option [value]='3'>3</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-6">
+                            <mat-form-field class="w-100">
+                                <mat-label>ผู้เปิดกิจกรรม</mat-label>
+                                <mat-select>
+                                    <mat-option [value]='1'>1</mat-option>
+                                    <mat-option [value]='2'>2</mat-option>
+                                    <mat-option [value]='3'>3</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-2">
+                            <mat-form-field class="w-100">
+                                <mat-label>ปีการศึกษา</mat-label>
+                                <mat-select>
+                                    <mat-option *ngFor="let year of yearlist" [value]="year.value">
+                                        {{year.name}}
+                                    </mat-option> 
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-6 col-md-2">
+                            <mat-form-field class="w-100">
+                                <mat-label>ภาคเรียน</mat-label>
+                                <mat-select>
+                                    <mat-option [value]='1'>1</mat-option>
+                                    <mat-option [value]='2'>2</mat-option>
+                                    <mat-option [value]='3'>3</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 top-padding">
+                            <mat-form-field class="w-100">
+                                <mat-label>วันทีจัดกิจกรรม</mat-label>
+                                <input matInput [matDatepicker]="picker">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-6 col-md-4 top-padding">
+                            <mat-form-field class="w-100">
+                                <mat-label>วันทีปิดกิจกรรม</mat-label>
+                                <input matInput [matDatepicker]="picker1">
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+						
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <mat-form-field class="w-100">
+                                <input matInput placeholder="สถานที่จัดกิจกรรม">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-6">
+                            <mat-form-field class="w-100">
+                                <textarea formControlName="actdetail" matInput placeholder="รายละเอียด"></textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-2">
+                            <mat-form-field class="w-100">
+                                <input matInput placeholder="จำนวนที่รับ">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <mat-form-field class="w-100">
+                                <input matInput placeholder="แหล่งงบประมาณ">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <mat-form-field class="w-100">
+                                <input matInput placeholder="งบประมาณขออนุมัติ">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <mat-form-field class="w-100">
+                                <input matInput placeholder="งบประมาณใช้งานจริง">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <mat-label>กิจกรรมสำหรับ</mat-label>
+                            <section class="example-section">
+                                <span>
+                                    <mat-checkbox class="example-margin" 
+                                        [checked]="allComplete"
+                                        [indeterminate]="someComplete()"
+                                        (change)="setAllfaculty($event.checked)">                                            
+                                            เลือกทั้งหมด
+                                    </mat-checkbox>
+                                </span>
+                                <span>
+                                    <ul>
+                                        <li *ngFor="let item of faculty;">
+                                            <mat-checkbox class="example-margin"    
+                                                [checked]="item.completed" 
+                                                (change)="item.completed=$event.checked;updateAllComplete()">
+                                                {{item.name}} - {{item.completed}}
+                                            </mat-checkbox>
+                                        </li>
+                                    </ul>
+                                </span>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-slide-toggle #pb>สถานะ {{(pb.checked?'เปิด':'ปิด')}} </mat-slide-toggle>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-flat-button class="me-2 bg-msu1 text-msu3">ล้างข้อมูล</button>
+                    <button mat-flat-button class="me-2 bg-success text-white">บันทึก</button>
+                </mat-card-actions>
+
+            </mat-card>
+
+        </div>
+    </div>
+
+
+
+
+
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-activity-add',
@@ -6,8 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./activity-add.component.css']
 })
 export class ActivityAddComponent implements OnInit {
+  constructor(private formBuilder: FormBuilder) { }
+  
+  formActivity = this.formBuilder.group({
+    actcode: [null, [Validators.required]],
+    actname: [null, [Validators.required]],
+    actdetail: [null,[Validators.required]],
+    actyear:[null,[Validators.required]],
+    actterm:['',[Validators.required]],
+    actstartdate:[{ "year": 2021, "month": 10, "day": 14 },[Validators.required]],
+    actenddate:[{ "year": 2021, "month": 10, "day": 14 },[Validators.required]],
+  }); 
+  get fa() {
+    return this.formActivity.controls;
+  }
+
   yearlist = [
-    {name:'2564',value:'2564'},
+    {name:'2564',value:'2564'},  
     {name:'2565',value:'2565'},
     {name:'2566',value:'2566'},
   ]
@@ -48,9 +64,16 @@ export class ActivityAddComponent implements OnInit {
 
 
 
-  constructor() { }
+ 
 
   ngOnInit(): void {
   }
+
+submitFormActivity(){
+  if(this.formActivity.valid){
+    console.log(this.formActivity.value);
+  }
+}
+
 
 }
