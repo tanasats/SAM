@@ -2,27 +2,41 @@
     <div>
         <!-- <mat-icon>domain</mat-icon> -->
         <button [routerLink]="['/admin/activity']" mat-icon-button matTooltip="ย้อนกลับ">
-            <mat-icon>chevron_left</mat-icon>
+            <mat-icon>arrow_back</mat-icon>
         </button>
         <label>รายละเอียดกิจกรรมนิสิต</label>
     </div>
     <span>
-        <button class="justify-content-end" mat-icon-button matTooltip="โหลดข้อมูล"
-            aria-label="Example icon button with a vertical three dot icon">
+        <button class="justify-content-end" mat-icon-button matTooltip="โหลดข้อมูล">
             <mat-icon>refresh</mat-icon>
         </button>
     </span>
 </div>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
 
-
-            ID : {{item.id}}<br>
-            รหัสกิจกรรม : {{item.actcode}}<br>
-            ชื่อกิจกรรม : {{item.actname}}
-
-        </div>
+    <div class="item-view">
+        <label>ID</label>
+        <span>{{item.id}}</span>
     </div>
-</div>
+    <div class="item-view">
+        <label>รหัสกิจกรรม</label>
+        <span>{{item.actcode}}</span>
+    </div>
+    <div class="item-view">
+        <label>ชื่อกิจกรรม</label>
+        <span>{{item.actname}}</span>
+    </div>
+    <div class="item-view">
+        <label>รายละเอียด</label>
+        <span>{{item.actdetail}}</span>
+    </div>
+    <div class="item-view">
+        <label>วันที่จัดกิจกรรม</label>
+        <span>{{item.actstartdate|thaidate:'short'}}</span>
+    </div>
+    <div class="item-view">
+        <label>วันที่ปิดกิจกรรม</label>
+        <span>{{item.actenddate|thaidate:'short'}}</span>
+    </div>
+
+

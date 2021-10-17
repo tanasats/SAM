@@ -1,6 +1,8 @@
 <div class="page-toolbar">
     <div>
-        <mat-icon>domain</mat-icon>
+        <button mat-icon-button>
+            <mat-icon>domain</mat-icon>
+        </button>
         <label>กิจกรรมนิสิต</label>
     </div>
     <span>
@@ -9,7 +11,7 @@
             <mat-icon>add</mat-icon>
         </button>
         <button class="justify-content-end" mat-icon-button matTooltip="โหลดข้อมูล"
-            aria-label="Example icon button with a vertical three dot icon">
+            aria-label="Example icon button with a vertical three dot icon" (click)="getallActivity()">
             <mat-icon>refresh</mat-icon>
         </button>
     </span>

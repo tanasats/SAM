@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HttpClientModule } from '@angular/common/http';
 
 import {MatToolbarModule } from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -26,6 +28,7 @@ import { NgbModule,NgbModal  } from '@ng-bootstrap/ng-bootstrap';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,11 +37,13 @@ import { NgbModule,NgbModal  } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     ConfirmDialogComponent,
 
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule, MatButtonModule, 
     MatTooltipModule, MatMenuModule, MatDialogModule,
     StudentModule,

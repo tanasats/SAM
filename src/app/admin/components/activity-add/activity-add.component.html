@@ -1,8 +1,8 @@
 <div class="page-toolbar">
   <div>
     <!-- <mat-icon>domain</mat-icon> -->
-    <button [routerLink]="['/admin/activity']" mat-icon-button matTooltip="ย้อนกลับ">
-      <mat-icon>chevron_left</mat-icon>
+    <button mat-icon-button [routerLink]="['/admin/activity']" matTooltip="ย้อนกลับ">
+      <mat-icon>arrow_back</mat-icon>
     </button>
     <label>เพิ่มกิจกรรมนิสิต</label>
   </div>
@@ -24,6 +24,7 @@
 <div class="container-fluid">
   <form [formGroup]="formActivity" #ngForm="ngForm" autocomplete="off">
     <div class="row">
+
       <div class="col-12 col-sm-4 col-md-3 col-lg-2">
         <label class="form-label">รหัส</label>
         <input formControlName="actcode" id="actcode" type="text" class="form-control" placeholder="" required>
@@ -33,37 +34,65 @@
         </div>
       </div>
       <div class="col-12 col-sm-8 col-md-9 col-lg-10">
-        <label class="form-label">ชื่อ</label>
+        <label class="form-label">ชื่อกิจกรรม/โครงการ</label>
         <input formControlName="actname" type="text" class="form-control" placeholder="">
         <div *ngIf="fa.actname.touched && fa.actname.invalid" class="form-error">
           <div *ngIf="fa.actname.errors && fa.actname.errors.required">กรุณากรอกข้อมูล ชื่อกิจกรรม</div>
         </div>
       </div>
-      <div class="col-12">
-        <label class="form-label">รายละเอียด</label>
-        <input formControlName="actdetail" type="text" class="form-control" placeholder="">
-        <div *ngIf="fa.actdetail.touched && fa.actdetail.invalid" class="form-error">
-          <div *ngIf="fa.actdetail.errors && fa.actdetail.errors.required">กรุณากรอกข้อมูล รายละเอียดกิจกรรม</div>
-        </div>
+
+      <div class="col-sm-6 col-md-4">
+        <label for="inputState" class="form-label">องค์กรผู้จัด</label>
+        <select id="inputState" class="form-select">
+          <option selected>-เลือก-</option>
+          <option>...</option>
+        </select>
       </div>
-      <div class="col-md-4">
+      <div class="col-sm-6 col-md-4">
+        <label for="inputState" class="form-label">ผู้เปิดกิจกรรม</label>
+        <select id="inputState" class="form-select">
+          <option selected>-เลือก-</option>
+          <option>...</option>
+        </select>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <label for="inputState" class="form-label">ประเภทกิจกรรม</label>
+        <select id="inputState" class="form-select">
+          <option selected>-เลือก-</option>
+          <option>...</option>
+        </select>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
         <label class="form-label">ปีการศึกษา</label>
         <input formControlName="actyear" type="text" class="form-control" placeholder="">
         <div *ngIf="fa.actyear.touched && fa.actyear.invalid" class="form-error">
           <div *ngIf="fa.actyear.errors && fa.actyear.errors.required">กรุณากรอกข้อมูล ปีการศึกษา</div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-sm-6 col-md-4">
         <label class="form-label">ภาคเรียน</label>
         <select formControlName="actterm" class="form-select">
-          <option value="" selected>-เลือก-</option>
+          <option value="null" selected>-เลือก-</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
         </select>
       </div>
+      <div class="col-sm-6 col-md-4">
+        <label  class="form-label">สถานที่จัดกิจกรรม</label>
+        <input type="text" class="form-control" >
+      </div>
+      
+      <div class="col-12">
+        <label class="form-label">รายละเอียด</label>
+        <textarea formControlName="actdetail" type="text" class="form-control" placeholder=""></textarea>
+        <div *ngIf="fa.actdetail.touched && fa.actdetail.invalid" class="form-error">
+          <div *ngIf="fa.actdetail.errors && fa.actdetail.errors.required">กรุณากรอกข้อมูล รายละเอียดกิจกรรม</div>
+        </div>
+      </div>
 
-      <div class="col-md-6">
+      <!-- <div class="col-md-6">
         <label for="inputCity" class="form-label">City</label>
         <input type="text" class="form-control" id="inputCity">
       </div>
@@ -77,12 +106,12 @@
       <div class="col-md-2">
         <label for="inputZip" class="form-label">Zip</label>
         <input type="text" class="form-control" id="inputZip">
-      </div>
+      </div> -->
 
 
 
 
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="form-group">
           <label class="form-label">วันที่จัดกิจกรรม</label>
           <div class="input-group">
@@ -95,7 +124,7 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="form-group">
           <label class="form-label">วันที่ปิดกิจกรรม</label>
           <div class="input-group">
@@ -109,14 +138,55 @@
       </div>
 
 
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Check me out
-          </label>
-        </div>
+    
+      <div class="col-md-3">
+        <label for="inputCity" class="form-label">จำนวนที่รับ</label>
+        <input type="text" class="form-control" id="inputCity">
       </div>
+      <div class="col-md-3">
+        <label for="inputCity" class="form-label">แหล่งงบประมาณ
+        </label>
+        <input type="text" class="form-control" id="inputCity">
+      </div>
+      <div class="col-md-3">
+        <label for="inputZip" class="form-label">งบประมาณขออนุมัติ</label>
+        <input type="text" class="form-control" id="inputZip">
+      </div>
+      <div class="col-md-3">
+        <label for="inputZip" class="form-label">งบประมาณใช้จริง</label>
+        <input type="text" class="form-control" id="inputZip">
+      </div>
+
+
+      <div class="col-12">
+        <label class="form-label">กิจกรรมสำหรับ</label>
+          <div class="form-check">            
+            <input class="form-check-input" type="checkbox" id="selectall">
+            <label class="form-check-label" for="selectall">
+              เลือกทั้งหมด
+            </label>
+          </div>        
+        <div class="row ps-4">
+        <div class="col-md-4" *ngFor="let item of faculty;let i=index">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="{{item.id}}">
+            <label class="form-check-label" for="{{item.id}}">
+              {{item.name}} 
+            </label>
+          </div>
+        </div>
+
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
 
       <div class="col-12">
         <div class="alert alert-danger mt-2">
@@ -128,7 +198,7 @@
       <div class="col-12">
         <button type="reset" class="btn btn-secondary me-2">Reset</button>
         <button type="submit" class="btn btn-success" [disabled]="!formActivity.valid"
-          (click)="submitFormActivity()">Save</button>
+          (click)="onSubmit()">Save</button>
       </div>
 
 
@@ -138,7 +208,7 @@
 
 
 
-
+ 
 
 
   <br>

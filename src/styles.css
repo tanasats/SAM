@@ -34,8 +34,9 @@ body {
 .app-logo {
   align-self: center;
   padding: 0 16px;
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.3rem;
+  font-weight:900;
+  cursor:pointer;
 }
 
 footer {
@@ -54,10 +55,14 @@ main {
 }
 main mat-drawer-container {
   min-height: calc(100vh - 128px);
+  /* overflow: unset; */
 }
 mat-drawer label {
   font-family: "Sarabun";
   padding-left: 8px;
+}
+button.mat-menu-item {
+  font-family: "Sarabun";
 }
 
 .sidenav-text-toggle {
@@ -107,7 +112,7 @@ a:hover {
   display: flex;
   align-items: center;
   border-bottom: 1px solid lightgray;
-  padding: 8px 16px;
+  padding: 8px 8px;
   color: rgb(52, 74, 97);
 }
 .page-toolbar div {
@@ -178,13 +183,17 @@ ngb-datepicker-navigation-select>.custom-select {
 
 
 /* My Color Theme */
+:root {
+  --msu-yellow: rgb(250, 223, 74);
+  --msu-gray:rgb(147, 151, 154);
+}
 .text-msu1 {
   color: rgb(250, 223, 74);
   /* color:rgb(226,155,65) */
 }
-.text-msu2 {
+/* .text-msu2 {
   color: rgb(147, 151, 154);
-}
+} */
 .text-msu2 {
   color: rgb(108, 111, 114);
 }

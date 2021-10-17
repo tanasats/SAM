@@ -1,5 +1,21 @@
-<p>การตั้งค่า</p>
-<hr>
+<div class="page-toolbar">
+    <div>
+        <button mat-icon-button>
+            <mat-icon>settings</mat-icon>
+        </button>
+        <label>การตั้งค่า</label>
+    </div>
+    <span>
+        <button [routerLink]="['add']" routerLinkActive="router-link-active" class="justify-content-end" mat-icon-button
+            matTooltip="เพิ่ม">
+            <mat-icon>add</mat-icon>
+        </button>
+        <button class="justify-content-end" mat-icon-button matTooltip="โหลดข้อมูล">
+            <mat-icon>refresh</mat-icon>
+        </button>
+    </span>
+</div>
+
 <mat-tab-group animationDuration="0ms">
     <mat-tab label="First"> Content 1 </mat-tab>
     <mat-tab label="Second"> Content 2 </mat-tab>

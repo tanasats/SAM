@@ -1,0 +1,20 @@
+.item-view{
+ border-bottom: 1px solid var(--bs-gray-200);   
+}
+.item-view label{
+float:left;
+width:140px;
+background-color: var(--bs-gray-200);
+text-align:right;
+padding-right: 8px;
+font-weight: 600;
+
+}
+.item-view span{
+padding-left: 8px;
+}
+@media (min-width: 576px) { 
+    .item-view label{
+        display:block;
+    }
+ }

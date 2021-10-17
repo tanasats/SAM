@@ -1,32 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { ActivityService } from 'src/app/services/activity.service';
 
 @Component({
   selector: 'app-activity-add',
   templateUrl: './activity-add.component.html',
-  styleUrls: ['./activity-add.component.css']
+  styleUrls: ['./activity-add.component.css'],
 })
 export class ActivityAddComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) { }
-  
+  constructor(private activityService:ActivityService,private formBuilder: FormBuilder) { }
+
   formActivity = this.formBuilder.group({
     actcode: [null, [Validators.required]],
     actname: [null, [Validators.required]],
-    actdetail: [null,[Validators.required]],
-    actyear:[null,[Validators.required]],
-    actterm:['',[Validators.required]],
-    actstartdate:[{ "year": 2021, "month": 10, "day": 14 },[Validators.required]],
-    actenddate:[{ "year": 2021, "month": 10, "day": 14 },[Validators.required]],
-  }); 
+    actdetail: [null, [Validators.required]],
+    actyear: [null, [Validators.required]],
+    actterm: [null, [Validators.required]],
+    actstartdate: [null, [Validators.required]],
+    actenddate: [null, [Validators.required]],
+    //faculty: new FormArray([]),
+  });
   get fa() {
     return this.formActivity.controls;
   }
 
-  yearlist = [
-    {name:'2564',value:'2564'},  
-    {name:'2565',value:'2565'},
-    {name:'2566',value:'2566'},
-  ]
   faculty = [
     { id: 1, name: 'คณะมนุษยศาสตร์และสังคมศาสตร์', completed: false },
     { id: 2, name: 'คณะวิทยาศาสตร์', completed: false },
@@ -49,7 +46,7 @@ export class ActivityAddComponent implements OnInit {
   allComplete: boolean = false;
   updateAllComplete() {
     this.allComplete = this.faculty.every((t) => t.completed);
-    console.log("updateAllComplete() return ",this.allComplete);
+    console.log('updateAllComplete() return ', this.allComplete);
   }
   someComplete(): boolean {
     return (
@@ -61,19 +58,36 @@ export class ActivityAddComponent implements OnInit {
     this.faculty.forEach((t) => (t.completed = completed));
   }
 
+  onSubmit() {
+    if (this.formActivity.valid) {
+      
+      console.log('Activity data :: ', this.formActivity.value);
+      let data = this.formActivity.value;
+      
+      data.actstartdate = data.actstartdate.year+'-'+data.actstartdate.month+'-'+data.actstartdate.day+' 00:00:00';
+      data.actenddate =  data.actenddate.year+'-'+data.actenddate.month+'-'+data.actenddate.day+' 00:00:00';
+      this.activityService.insert(data).subscribe(
+        (res) => {
+          console.log(res);
+          if (res.affectedRows) {
+            console.log("insert success !!!!")
+          }
+        },
+        (err) => {
+          console.log("insert error ",err)
+          //console.log(err);
+        }
+      );
 
-
-
- 
+    }
+  }
 
   ngOnInit(): void {
+    this.formActivity
+
   }
 
-submitFormActivity(){
-  if(this.formActivity.valid){
-    console.log(this.formActivity.value);
-  }
-}
 
 
+  
 }

@@ -35,8 +35,8 @@ import { ActivityListItemComponent } from './components/activity-list-item/activ
 import { ActivityEditComponent } from './components/activity-edit/activity-edit.component';
 import { ActivityViewComponent } from './components/activity-view/activity-view.component';
 import { SettingComponent } from './components/setting/setting.component';
-
-
+import { ThaiDatePipe } from '../pipes/thaidate.pipe';
+ 
 
 
 @NgModule({
@@ -45,11 +45,12 @@ import { SettingComponent } from './components/setting/setting.component';
     SidenavComponent,
     HomeComponent,
     ActivityComponent,
-    ActivityAddComponent,
+    ActivityAddComponent, 
     ActivityListItemComponent,
     ActivityEditComponent,
     ActivityViewComponent,
     SettingComponent,
+    ThaiDatePipe,
 
   ],
   imports: [

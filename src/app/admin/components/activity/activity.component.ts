@@ -4,6 +4,8 @@ import {
   ConfirmDialogComponent,
   ConfirmDialogModel,
 } from 'src/app/components/confirm-dialog/confirm-dialog.component';
+import { ActivityService } from 'src/app/services/activity.service';
+
 
 @Component({
   selector: 'app-activity',
@@ -11,15 +13,18 @@ import {
   styleUrls: ['./activity.component.css'],
 })
 export class ActivityComponent implements OnInit {
-  activitylist = [
-    { id: 1, actcode: '1111', actname: 'xxxx' },
-    { id: 2, actcode: '2222', actname: 'yyyy' },
-  ];
+  // activitylist = [
+  //   { id: 1, actcode: '1111', actname: 'xxxx' },
+  //   { id: 2, actcode: '2222', actname: 'yyyy' },
+  // ];
+  activitylist = [];
   result: string = '';
 
-  constructor(public dialog: MatDialog) {}
+  constructor(private activityService:ActivityService ,public dialog: MatDialog) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getallActivity();
+  }
 
   confirmDialog(): void {
     const message = 'ต้องการลบ xxxxx';
@@ -38,22 +43,53 @@ export class ActivityComponent implements OnInit {
     });
   }
 
+  getallActivity(){
+    this.activityService.getall().subscribe(
+      (res) => {
+        console.log("activityService=>res: ",res);
+        this.activitylist = res;
+      },
+      (err) => {
+        console.log("activityService=>err: ",err)
+      }  
+    )
+  }
+
   deleteItem(item: any) {
     //console.log(item);
-    const message = 'ต้องการลบ ' + item.actcode+' '+ item.actname;
-    const dialogData = new ConfirmDialogModel('ยืนยันลบข้อมูล', message,'home' );
+    const message = 'กิจกรรม ' + item.actcode+' '+ item.actname;
+    const dialogData = new ConfirmDialogModel('ยืนยันลบข้อมูล', message );
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       //maxWidth: '400px',
       width: '500px',
       data: dialogData,
     });
-    dialogRef.afterClosed().subscribe((dialogResult) => {
+    dialogRef.afterClosed().subscribe((dialogResult) => { 
       //this.result = dialogResult;
       if (dialogResult) {
         console.log('ดำเนินการลบ ' + item.actcode);
+        this.onDelete(item.id);
       } else {
         console.log('ยกเลิกลบ ' + item.actcode);
       }
     });
   }
-}
+  onDelete(id:any){
+    this.activityService.delete(id).subscribe(
+      (res) => {
+        //console.log("activityService=>res: ",res);
+        if(res.affectedRows){
+          console.log("success !! delete id: ",id)
+          this.getallActivity()
+        }
+      },
+      (err) => {
+        //console.log("activityService=>err: ",err)
+        console.log("delete error: ",err)
+      }  
+    )
+  }
+  
+
+
+} //----class----

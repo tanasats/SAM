@@ -43,7 +43,8 @@ export class ConfirmDialogComponent implements OnInit {
   constructor(
     public title: string, 
     public message: string,
-    public icon: string='',
+    //public icon: string='clear',
+    public icon: string='delete_outline',
     ) {
   }
 }
