@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ToastrModule } from 'ngx-toastr';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -25,6 +26,7 @@ import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './components/login/login.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { NgbModule,NgbModal  } from '@ng-bootstrap/ng-bootstrap';
+import { ToastComponent } from './components/toast/toast.component';
 
 
 
@@ -36,6 +38,7 @@ import { NgbModule,NgbModal  } from '@ng-bootstrap/ng-bootstrap';
     SidenavComponent,
     LoginComponent,
     ConfirmDialogComponent,
+    ToastComponent,
 
 
   ],
@@ -43,6 +46,7 @@ import { NgbModule,NgbModal  } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule, MatButtonModule, 
     MatTooltipModule, MatMenuModule, MatDialogModule,

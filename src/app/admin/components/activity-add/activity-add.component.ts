@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivityService } from 'src/app/services/activity.service';
+import { NotificationService} from 'src/app/services/notification.service';
+import { ToastService} from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-activity-add',
@@ -8,7 +10,12 @@ import { ActivityService } from 'src/app/services/activity.service';
   styleUrls: ['./activity-add.component.css'],
 })
 export class ActivityAddComponent implements OnInit {
-  constructor(private activityService:ActivityService,private formBuilder: FormBuilder) { }
+  constructor(
+    private activityService:ActivityService,
+    private notifyService:NotificationService,
+    private formBuilder: FormBuilder,
+    private toastService:ToastService,
+    ) { }
 
   formActivity = this.formBuilder.group({
     actcode: [null, [Validators.required]],
@@ -63,18 +70,21 @@ export class ActivityAddComponent implements OnInit {
       
       console.log('Activity data :: ', this.formActivity.value);
       let data = this.formActivity.value;
-      
-      data.actstartdate = data.actstartdate.year+'-'+data.actstartdate.month+'-'+data.actstartdate.day+' 00:00:00';
-      data.actenddate =  data.actenddate.year+'-'+data.actenddate.month+'-'+data.actenddate.day+' 00:00:00';
+      data.actstartdate = data.actstartdate.year+'-'+data.actstartdate.month+'-'+data.actstartdate.day+'T00:00:00';
+      data.actenddate =  data.actenddate.year+'-'+data.actenddate.month+'-'+data.actenddate.day+'T00:00:00';
       this.activityService.insert(data).subscribe(
         (res) => {
           console.log(res);
           if (res.affectedRows) {
             console.log("insert success !!!!")
+            //this.notifyService.showSuccess('เพิ่มข้อมูลสำเร็จ','ดำเนินการ')
+            this.showSuccess();
+            this.formActivity.reset();
           }
         },
         (err) => {
           console.log("insert error ",err)
+          this.notifyService.showError(err,'ผิดพลาด')
           //console.log(err);
         }
       );
@@ -87,7 +97,14 @@ export class ActivityAddComponent implements OnInit {
 
   }
 
-
+  showSuccess() {
+    this.toastService.show('I am a success toast', {
+      classname: 'bg-success text-light',
+      delay: 2000 ,
+      autohide: true,
+      //headertext: 'Toast Header'
+    });
+  }
 
   
 }

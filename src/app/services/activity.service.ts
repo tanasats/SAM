@@ -54,6 +54,12 @@ export class ActivityService {
       .pipe(catchError(this.handleError));
   }
 
+  update(data: any): Observable<any> {
+    return this.http
+      .put(endpoint+'/'+data.id, data, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }  
+
   delete(id:any): Observable<any>{
     return this.http
     .delete(endpoint+'/'+id,this.httpOptions)

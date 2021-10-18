@@ -29,7 +29,7 @@
         <label class="form-label">รหัส</label>
         <input formControlName="actcode" id="actcode" type="text" class="form-control" placeholder="" required>
         <div *ngIf="fa.actcode.touched && fa.actcode.invalid" class="form-error">
-          <div *ngIf="fa.actcode.errors && fa.actcode.errors.required">กรุณากรอกข้อมูล รหัสกิจกรรม</div>
+          <div *ngIf="fa.actcode.errors && fa.actcode.errors.required">โปรดระบุ รหัสกิจกรรม</div>
           <!-- <div *ngIf="fa.actcode.errors && fa.actcode.errors.minlength">actcode should be 3 character.</div> -->
         </div>
       </div>
@@ -37,7 +37,7 @@
         <label class="form-label">ชื่อกิจกรรม/โครงการ</label>
         <input formControlName="actname" type="text" class="form-control" placeholder="">
         <div *ngIf="fa.actname.touched && fa.actname.invalid" class="form-error">
-          <div *ngIf="fa.actname.errors && fa.actname.errors.required">กรุณากรอกข้อมูล ชื่อกิจกรรม</div>
+          <div *ngIf="fa.actname.errors && fa.actname.errors.required">โปรดระบุ ชื่อกิจกรรม</div>
         </div>
       </div>
 
@@ -67,7 +67,7 @@
         <label class="form-label">ปีการศึกษา</label>
         <input formControlName="actyear" type="text" class="form-control" placeholder="">
         <div *ngIf="fa.actyear.touched && fa.actyear.invalid" class="form-error">
-          <div *ngIf="fa.actyear.errors && fa.actyear.errors.required">กรุณากรอกข้อมูล ปีการศึกษา</div>
+          <div *ngIf="fa.actyear.errors && fa.actyear.errors.required">โปรดระบุ ปีการศึกษา</div>
         </div>
       </div>
       <div class="col-sm-6 col-md-4">
@@ -88,7 +88,7 @@
         <label class="form-label">รายละเอียด</label>
         <textarea formControlName="actdetail" type="text" class="form-control" placeholder=""></textarea>
         <div *ngIf="fa.actdetail.touched && fa.actdetail.invalid" class="form-error">
-          <div *ngIf="fa.actdetail.errors && fa.actdetail.errors.required">กรุณากรอกข้อมูล รายละเอียดกิจกรรม</div>
+          <div *ngIf="fa.actdetail.errors && fa.actdetail.errors.required">โปรดระบุ รายละเอียดกิจกรรม</div>
         </div>
       </div>
 

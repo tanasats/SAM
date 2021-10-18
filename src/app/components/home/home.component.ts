@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import { ToastService } from 'src/app/services/toast.service';
 import {
   ConfirmDialogModel,
   ConfirmDialogComponent,
 } from '../confirm-dialog/confirm-dialog.component';
+
 
 @Component({
   selector: 'app-home',
@@ -31,7 +33,7 @@ export class HomeComponent implements OnInit {
   
   //date: { year: number; month: number; day: number} | undefined;;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,private toastService:ToastService) {}
 
   ngOnInit(): void {}
 
@@ -46,4 +48,38 @@ export class HomeComponent implements OnInit {
       this.result = dialogResult;
     });
   }
+
+
+
+  
+  showStandard() {
+    this.toastService.show('I am a standard toast', {
+      delay: 2000,
+      autohide: true
+    });
+  }
+  showSuccess() {
+    this.toastService.show('I am a success toast', {
+      classname: 'bg-success text-light',
+      delay: 2000 ,
+      autohide: true,
+      headertext: 'Toast Header'
+    });
+  }
+  showError() {
+    this.toastService.show('I am a success toast', {
+      classname: 'bg-danger text-light',
+      delay: 2000 ,
+      autohide: true,
+      headertext: 'Error!!!'
+    });
+  }
+  showCustomToast(customTpl: string | TemplateRef<any>) {
+    this.toastService.show(customTpl, {
+      classname: 'bg-info text-light',
+      delay: 3000,
+      autohide: true
+    });
+  }  
+
 }

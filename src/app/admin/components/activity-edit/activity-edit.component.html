@@ -25,6 +25,7 @@
 
       <div class="col-12 col-sm-4 col-md-3 col-lg-2">
         <label class="form-label">รหัส</label>
+        <input formControlName="id" type="text" hidden>
         <input formControlName="actcode" id="actcode" type="text" class="form-control" placeholder="" required>
         <div *ngIf="fa.actcode.touched && fa.actcode.invalid" class="form-error">
           <div *ngIf="fa.actcode.errors && fa.actcode.errors.required">กรุณากรอกข้อมูล รหัสกิจกรรม</div>
@@ -40,22 +41,24 @@
       </div>
 
       <div class="col-sm-6 col-md-4">
-        <label for="inputState" class="form-label">องค์กรผู้จัด</label>
-        <select id="inputState" class="form-select">
+        <label for="" class="form-label">องค์กรผู้จัด</label>
+        <select formControlName="orcode" id="" class="form-select">
+          <option value="null">-เลือก-</option>
+          <option value="A001">ภายใน มมส.</option>
+          <option value="A002">ภายนอก มมส.</option>
+          <option value="A003">ภายนอก มมส.</option>
+        </select>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <label for="" class="form-label">ผู้เปิดกิจกรรม</label>
+        <select id="" class="form-select">
           <option selected>-เลือก-</option>
           <option>...</option>
         </select>
       </div>
       <div class="col-sm-6 col-md-4">
-        <label for="inputState" class="form-label">ผู้เปิดกิจกรรม</label>
-        <select id="inputState" class="form-select">
-          <option selected>-เลือก-</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <label for="inputState" class="form-label">ประเภทกิจกรรม</label>
-        <select id="inputState" class="form-select">
+        <label for="" class="form-label">ประเภทกิจกรรม</label>
+        <select id="" class="form-select">
           <option selected>-เลือก-</option>
           <option>...</option>
         </select>
@@ -95,8 +98,8 @@
         <input type="text" class="form-control" id="inputCity">
       </div>
       <div class="col-md-4">
-        <label for="inputState" class="form-label">State</label>
-        <select id="inputState" class="form-select">
+        <label for="" class="form-label">State</label>
+        <select id="" class="form-select">
           <option selected>Choose...</option>
           <option>...</option>
         </select>

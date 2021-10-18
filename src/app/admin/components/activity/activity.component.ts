@@ -5,6 +5,7 @@ import {
   ConfirmDialogModel,
 } from 'src/app/components/confirm-dialog/confirm-dialog.component';
 import { ActivityService } from 'src/app/services/activity.service';
+import { NotificationService} from 'src/app/services/notification.service'
 
 
 @Component({
@@ -20,7 +21,7 @@ export class ActivityComponent implements OnInit {
   activitylist = [];
   result: string = '';
 
-  constructor(private activityService:ActivityService ,public dialog: MatDialog) {}
+  constructor(private activityService:ActivityService, private notifyService : NotificationService, public dialog: MatDialog,) {}
 
   ngOnInit(): void {
     this.getallActivity();
@@ -78,13 +79,17 @@ export class ActivityComponent implements OnInit {
     this.activityService.delete(id).subscribe(
       (res) => {
         //console.log("activityService=>res: ",res);
-        if(res.affectedRows){
+        if(res.affectedRows==1){
           console.log("success !! delete id: ",id)
+          this.notifyService.showInfo("ลบข้อมูลเรียบร้อย", "ดำเนินการ")
           this.getallActivity()
+        }else{
+          this.notifyService.showError("ไม่สามารถลบข้อมูลได้", "ผิดพลาด")
         }
       },
       (err) => {
         //console.log("activityService=>err: ",err)
+        this.notifyService.showError("Error: "+err, "ผิดพลาด")
         console.log("delete error: ",err)
       }  
     )
