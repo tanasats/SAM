@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule} from '@angular/material/tabs';
 
 import { HomeComponent } from './components/home/home.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component'
@@ -27,6 +29,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { NgbModule,NgbModal  } from '@ng-bootstrap/ng-bootstrap';
 import { ToastComponent } from './components/toast/toast.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 
 
@@ -39,6 +42,7 @@ import { ToastComponent } from './components/toast/toast.component';
     LoginComponent,
     ConfirmDialogComponent,
     ToastComponent,
+    FileUploadComponent,
 
 
   ],
@@ -46,10 +50,11 @@ import { ToastComponent } from './components/toast/toast.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule, ReactiveFormsModule,
     ToastrModule.forRoot(),
     HttpClientModule,
     MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule, MatButtonModule, 
-    MatTooltipModule, MatMenuModule, MatDialogModule,
+    MatTooltipModule, MatMenuModule, MatDialogModule, MatTabsModule,
     StudentModule,
     OfficerModule,
     AdminModule,

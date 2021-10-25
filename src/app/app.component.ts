@@ -7,9 +7,8 @@ import { Component, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  //@ViewChild('NgbdDatepicker') d: NgbDateStruct | undefined;
-  title = 'MyTheme';
-  isShowSideNavText = true;
+//  title = 'MyTheme';
+//  isShowSideNavText = true;
 
  
 }

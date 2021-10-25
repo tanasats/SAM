@@ -20,6 +20,7 @@ export class ActivityService {
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        //'Content-Type': 'multipart/form-data; charset=utf-8',
         'Cache-Control': 'no-cache',
         'x-access-token': token,
       }),
@@ -27,17 +28,17 @@ export class ActivityService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    //console.log('this is pipe(catchError()) in user.service-->');
-    //console.log(error);
+    //console.log("isstanceof httperrorresponse=",error instanceof HttpErrorResponse);
     switch (error.status) {
       case 0:
-        return throwError('Out of service');
+        return throwError({'message':'Out of service'});
         break;
       case 400:
         return throwError(error.error);
         break;
       default:
-        return throwError(error);
+        return throwError(error.error);
+        //return throwError(error.statusText);
     }
   }
 
@@ -69,6 +70,24 @@ export class ActivityService {
   findById(id:any) : Observable<any>{
     return this.http
       .get(endpoint+'/'+id,this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  upload(data: any): Observable<any> {
+    console.log(data);
+    var formData: any = new FormData();
+    formData.append("name", data.name);
+    formData.append("avatar", data.avatar);  //field name of File input data
+    console.log(formData)
+
+    return this.http
+    .post<any>(endpoint+'/picture-upload', formData,
+      //.post<any>('http://localhost:4000/upload-avatar', formData,
+      {headers: new HttpHeaders({
+          //'Content-Type': 'multipart/form-data; charset=utf-8',
+          'Cache-Control': 'no-cache',
+          'x-access-token': '',})
+        })
       .pipe(catchError(this.handleError));
   }
 

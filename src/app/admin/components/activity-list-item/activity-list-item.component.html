@@ -42,7 +42,7 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" Position="before">
-                <button mat-menu-item>
+                <button mat-menu-item [routerLink]="['edit',item.id]"  [state]="item">
                     <mat-icon style="margin:2px;">create</mat-icon>แก้ไข
                 </button>
                 <button mat-menu-item (click)="onDelete(item)">

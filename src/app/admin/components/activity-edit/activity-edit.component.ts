@@ -36,6 +36,7 @@ export class ActivityEditComponent implements OnInit {
     actenddate: ['', [Validators.required]],
     //faculty: new FormArray([]),
     orcode: [null,[]],
+    actstatus: [0,[]],
   });
   get fa() {
     return this.formActivity.controls;

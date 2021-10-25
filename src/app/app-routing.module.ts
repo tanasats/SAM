@@ -1,3 +1,4 @@
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { HomeComponent } from './components/home/home.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path:'officer',loadChildren:()=>import('./officer/officer-routing.module').then((m)=>m.OfficerRoutingModule)},
   {path:'admin',loadChildren:()=>import('./admin/admin-routing.module').then((m)=>m.AdminRoutingModule)},
   {path:'login',component:LoginComponent},
+  {path:'upload',component:FileUploadComponent},
   
   {path:'**',redirectTo:'home',pathMatch:'full'}
 ];

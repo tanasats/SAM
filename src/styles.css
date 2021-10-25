@@ -107,6 +107,14 @@ a:visited {
 a:hover {
   color: rgb(250, 223, 74);
 }
+.mat-icon-button:hover
+{
+  background-color:rgba(0, 0, 0, 0.05)
+}
+
+
+
+
 
 .page-toolbar {
   display: flex;
