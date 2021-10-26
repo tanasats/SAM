@@ -1,0 +1,30 @@
+<header id="app-topnev">
+    <div class="app-logo text-msu1" [routerLink]="['/home']">
+      SAM
+    </div>
+    <a mat-button [routerLink]="['/student']" routerLinkActive="router-link-active">
+      student
+    </a>
+    <a mat-button [routerLink]="['/officer']" routerLinkActive="router-link-active">
+      offier
+    </a>
+    <a mat-button [routerLink]="['/admin']" routerLinkActive="router-link-active">
+      admin
+    </a>
+    <a *ngIf="!isLoggedIn()" mat-button style="margin-left: auto;" [routerLink]="['/login']" routerLinkActive="router-link-active">
+      เข้าใช้งาน
+    </a>
+    <div *ngIf="isLoggedIn()" style="margin-left: auto;align-self:center">
+        {{userfullname}}
+    </div>
+    <a *ngIf="isLoggedIn()" mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+      <mat-icon>more_vert</mat-icon>
+    </a>
+    <mat-menu #menu="matMenu" Position="before">
+      <button mat-menu-item [routerLink]="['profile']" >profile</button>
+      <button mat-menu-item (click)="LogOut()">ออกจากระบบ</button>
+    </mat-menu>
+    <!-- <a [routerLink]="['/login']" routerLinkActive="router-link-active"  style="align-self: center;">
+    <mat-icon>login</mat-icon>
+    </a> -->
+  </header>

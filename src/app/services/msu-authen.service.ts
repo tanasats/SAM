@@ -20,16 +20,16 @@ export class MsuAuthenService {
     };
   }
   private handleError(error: HttpErrorResponse) {
-    //console.log("isstanceof httperrorresponse=",error instanceof HttpErrorResponse);
+    console.log("isstanceof httperrorresponse=",error instanceof HttpErrorResponse);
     switch (error.status) {
       case 0:
-        return throwError({'message':'Out of service'});
+        return throwError({'status':0,'error':'Network out of service!'});
         break;
       case 400:
-        return throwError(error.error);
+        return throwError(error);
         break;
       default:
-        return throwError(error.error);
+        return throwError(error);
     }
   }
 
@@ -40,6 +40,9 @@ export class MsuAuthenService {
     return this.http.post(this.endpoint+'/signin',data,this.httpOptions).pipe(catchError(this.handleError))
   }
 
+  me(): Observable<any>{
+    return this.http.get(this.endpoint+'/me',this.httpOptions).pipe(catchError(this.handleError))
+  }
 
 
 

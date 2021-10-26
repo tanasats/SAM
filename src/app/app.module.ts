@@ -30,8 +30,10 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import { NgbModule,NgbModal  } from '@ng-bootstrap/ng-bootstrap';
 import { ToastComponent } from './components/toast/toast.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { TopnavComponent } from './components/topnav/topnav.component';
 
-
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     ConfirmDialogComponent,
     ToastComponent,
     FileUploadComponent,
+    TopnavComponent,
+    ProfileComponent,
 
 
   ],
@@ -61,7 +65,10 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     NgbModule,
 
   ],
-  providers: [],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+        JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

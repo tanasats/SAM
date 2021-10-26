@@ -187,8 +187,13 @@ ngb-datepicker-navigation-select>.custom-select {
   border-radius: 4px !important;
 }
 
+.ngb-toasts{
+  top:64px !important;
+  
+}
 .toast{ /*--reset ngb-toasts class */
   width:unset;
+  --bs-bg-opacity: 0.8;
 }
 
 

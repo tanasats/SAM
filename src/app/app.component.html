@@ -1,33 +1,7 @@
 <div class="sj-wrapper">
-  <header id="app-topnev">
-    <div class="app-logo text-msu1" [routerLink]="['/home']">
-      SAM
-    </div>
-    <a mat-button [routerLink]="['/student']" routerLinkActive="router-link-active">
-      student
-    </a>
-    <a mat-button [routerLink]="['/officer']" routerLinkActive="router-link-active">
-      offier
-    </a>
-    <a mat-button [routerLink]="['/admin']" routerLinkActive="router-link-active">
-      admin
-    </a>
-    <a mat-button style="margin-left: auto;" [routerLink]="['/login']" routerLinkActive="router-link-active">
-      เข้าใช้งาน
-    </a>
-    <a mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-      <mat-icon>more_vert</mat-icon>
-    </a>
-    <mat-menu #menu="matMenu" Position="before">
-      <button mat-menu-item>Student</button>
-      <button mat-menu-item>Officer</button>
-      <button mat-menu-item>Admin</button>
-    </mat-menu>
-    <!-- <a [routerLink]="['/login']" routerLinkActive="router-link-active"  style="align-self: center;">
-    <mat-icon>login</mat-icon>
-    </a> -->
-  </header>
 
+
+  <app-topnav></app-topnav>
   <router-outlet></router-outlet>
   <app-toasts></app-toasts>
 
